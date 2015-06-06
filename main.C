@@ -15,6 +15,7 @@ using std::endl;
 using std::string;
 using std::istringstream;
 
+
 int stringToInt(const string s) {
   istringstream istr(s);
   int i = 0;
