@@ -4,7 +4,7 @@ using std::cout;
 using std::endl;
 using std::boolalpha;
 
-Child::Child(string name, int age, string phone_number) : Person(name, age), Prnts_phone_number_(phone_number), sick_(false) {}; /*Child constructor*/
+Child::Child(string name, unsigned int age, string phone_number) : Person(name, age), Prnts_phone_number_(phone_number), sick_(false) {}; /*Child constructor*/
 
 string Child::get_phone() const /*Returns the perants phone number*/
 {
