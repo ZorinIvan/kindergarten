@@ -5,7 +5,7 @@ using std::cout;
 using std::endl;
 
 
-Person::Person(int age, string name) : age_(age), name_(name) {}; /*Constructor*/
+Person::Person(string name, int age) : age_(age), name_(name) {}; /*Constructor*/
 
 string Person::get_name() const /*Gives the person's name*/
 {

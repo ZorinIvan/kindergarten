@@ -6,9 +6,11 @@
 
 class Teacher : public Person{
 public:
-// Add your code here ...
+	Teacher(string name, int age, int seniority); /*Constructor*/
+	int get_seniority() const;
+	void print_teacher() const;
 private:
-// Add your code here ...
+	int seniority_;
 };
 
 #endif
