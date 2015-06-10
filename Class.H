@@ -14,11 +14,27 @@ using std::vector;
 
 class Class : public Room{
 public:
-// Add your code here ...	
+	Class(int room_number, int space, double child_teacher_max, int age_group, int max_child_num); /*Constructor*/
+
+	int get_teacher_num() const; /*returns number of teachers in this class*/
+	int get_age_group() const; /*Class age group*/
+	double get_current_ratio() const; /*Current ratios of children to teachers*/
+	string get_child_number(string childs_name) const; /*returns child's parents phone number*/
+	void print_class() const;
+
+	Result add_teacher(string teachers_name);
+	Result add_child(string childs_name);
+	Result remove_teacher(string teachers_name);
+	Result remove_child(string childs_name);
+	Result sick_child(string childs_name);
+
   	
 private:
-// Add your code here ...
-
+	double child_teacher_max_;
+	int max_child_num_;
+	int age_group_;
+	vector<Child> child_vec_; /*Create a child vector*/
+	vector<Teacher> teacher_vec_; /*Create a teacher vector*/
 };
 
 #endif

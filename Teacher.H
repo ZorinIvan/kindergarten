@@ -6,11 +6,11 @@
 
 class Teacher : public Person{
 public:
-	Teacher(string name, unsigned int age, int seniority); /*Constructor*/
-	unsigned int get_seniority() const;
+	Teacher(string name, int age, int seniority); /*Constructor*/
+	int get_seniority() const;
 	void print_teacher() const;
 private:
-	unsigned int seniority_;
+	int seniority_;
 };
 
 #endif

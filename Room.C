@@ -6,9 +6,9 @@ using std::cout;
 using std::endl;
 using std::boolalpha;
 
-Room::Room(unsigned int room_num, unsigned int room_space) : room_num_(room_num), room_space_(room_space), occupied_(false) {}; /*Constructor*/
+Room::Room(int room_num, int room_space) : room_num_(room_num), room_space_(room_space), occupied_(false) {}; /*Constructor*/
 
-unsigned int Room::get_room_num() const /*returns room number*/
+int Room::get_room_num() const /*returns room number*/
 {
 	return room_num_;
 }

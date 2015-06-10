@@ -3,9 +3,9 @@ using std::string;
 using std::cout;
 using std::endl;
 
-Teacher::Teacher(string name, unsigned int age, int seniority) : Person(name, age), seniority_(seniority) {}; /*Constructor*/
+Teacher::Teacher(string name, int age, int seniority) : Person(name, age), seniority_(seniority) {}; /*Constructor*/
 
-unsigned int Teacher::get_seniority() const
+int Teacher::get_seniority() const
 {
 	return seniority_;
 }

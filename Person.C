@@ -5,13 +5,13 @@ using std::cout;
 using std::endl;
 
 
-Person::Person(string name, unsigned int age) : age_(age), name_(name) {}; /*Constructor*/
+Person::Person(string name, int age) : age_(age), name_(name) {}; /*Constructor*/
 
 string Person::get_name() const /*Gives the person's name*/
 {
 	return name_;
 }
-unsigned int Person::get_age() const /*Gives the persons age*/
+int Person::get_age() const /*Gives the persons age*/
 {
 	return age_;
 }
