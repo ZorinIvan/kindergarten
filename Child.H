@@ -9,9 +9,14 @@ using std::string;
 
 class Child : public Person {
 public:
-// Add your code here ...
+	Child(string name, int age, string phone_number); /*Cpnstructor*/
+	string get_phone() const; /*Takes phone number*/
+	void set_phone(string phone_number); /*Sets phone number*/
+	Result set_sick();
+	void print_child() const;
 private:
-// Add your code here ...
+	string Prnts_phone_number_;
+	bool sick_;
 };
 
 #endif
