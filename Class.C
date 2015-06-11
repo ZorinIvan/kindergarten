@@ -42,13 +42,13 @@ string Class::get_child_number(string childs_name) const
 
 Result Class::add_teacher(string teachers_name, int seniority, int age)
 {
-	Teacher* new_teacher = new Teacher(teachers_name, age, seniority); /*Create a new teacher*/
+	Teacher new_teacher(teachers_name, age, seniority); /*Create a new teacher*/
 	for (int i = (teacher_vec_.size() - 1); i <= 0; i--) /*Go through the items in the vector and see if it exists already*/
 	{
 		if (teacher_vec_[i].get_name() == teachers_name)
 			return FAILURE;
 	}
-	teacher_vec_.push_back(*new_teacher);
+	teacher_vec_.push_back(new_teacher);
 	return SUCCESS;
 }
 
@@ -58,7 +58,7 @@ Result Class::add_child(string childs_name, string Prnts_phone_number, int age) 
 		return FAILURE; /*No teachers*/
 	if (child_vec_.size() == max_child_num_) /*We surpass the max ammount of children*/
 		return FAILURE;
-	Child* new_child = new Child(childs_name, age, Prnts_phone_number); /*Dynamic memory alloc*/
+	Child new_child(childs_name, age, Prnts_phone_number);
 	if (((child_vec_.size() + 1) / teacher_vec_.size()) > child_teacher_max_) /*Dont surpass the maximum*/
 		return FAILURE;
 	for (int i = (child_vec_.size() - 1); i <= 0; i--) /*Go through the items in the vector and see if it exists already*/
@@ -66,7 +66,7 @@ Result Class::add_child(string childs_name, string Prnts_phone_number, int age) 
 		if (teacher_vec_[i].get_name() == childs_name)
 			return FAILURE;
 	}
-	child_vec_.push_back(*new_child);
+	child_vec_.push_back(new_child);
 	return SUCCESS;
 }
 
@@ -80,9 +80,7 @@ Result Class::remove_teacher(string teachers_name)
 	{
 		if (teacher_vec_[i].get_name() == teachers_name)/*Found the teacher*/
 		{
-			Teacher* tmp_pointer = &teacher_vec_[i];
 			teacher_vec_.erase(teacher_vec_.end() - 1 - i); /*We are deleting from the end*/ /*it returns the position of the past-the-end place*/
-			delete tmp_pointer;
 			return SUCCESS;
 		}
 	}
@@ -95,9 +93,7 @@ Result Class::remove_child(string childs_name)
 	{
 		if (child_vec_[i].get_name() == childs_name)/*Found the child*/
 		{
-			Child* tmp_pointer = &child_vec_[i];
 			child_vec_.erase(child_vec_.end() - 1 - i); /*We are deleting from the end*/ /*it returns the position of the past-the-end place*/
-			delete tmp_pointer;
 			return SUCCESS;
 		}
 	}
