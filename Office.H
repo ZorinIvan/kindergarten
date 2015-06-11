@@ -25,7 +25,7 @@ public:
 private:
 	bool busy_;
 	string sick_child_name_;
-	vector<Class> class_vector_;
+	vector<Class> class_vec_;
 };
 
 #endif
