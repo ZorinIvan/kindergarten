@@ -112,3 +112,38 @@ Result Class::sick_child(string childs_name)
 	}
 	return FAILURE; /*Child not found*/
 }
+
+void Class::print_class() const
+{
+	cout << "Printing class status :" << endl;
+	cout << "========================" << endl;
+	print_room();
+	cout << "Max number of children : " << max_child_num_ << endl;
+	cout << "Number of children : " << child_vec_.size() << endl;
+	cout << "Number of teachers : " << teacher_vec_.size() << endl;
+	cout << "Max value for ratio : " << child_teacher_max_ << endl;
+	cout << "Current ratio : " << get_current_ratio() << endl;
+	cout << "Children age range : " << get_age_group() << " - " << (get_age_group() + 1) << endl;
+	cout << endl;
+	cout << "Printing childrens status :" << endl;
+	cout << "========================" << endl;
+	if (child_vec_.size() > 0) /*There are children in this class*/
+	{
+		for (int i = child_vec_.size() - 1; i >= 0; i--)
+		{
+			child_vec_[i].print_child();
+		}
+	}
+	cout << endl;
+	cout << "Printing teachers status :" << endl;
+	cout << "========================" << endl;
+	if (teacher_vec_.size() > 0) /*There are teachers in this class*/
+	{
+		for (int i = teacher_vec_.size() - 1; i >= 0; i--)
+		{
+			teacher_vec_[i].print_teacher();
+		}
+	}
+	cout << endl;
+	return;
+}
