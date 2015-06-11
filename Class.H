@@ -22,8 +22,8 @@ public:
 	string get_child_number(string childs_name) const; /*returns child's parents phone number*/
 	void print_class() const;
 
-	Result add_teacher(string teachers_name);
-	Result add_child(string childs_name);
+	Result add_teacher(string teachers_name, int seniority , int age);
+	Result add_child(string childs_name, string Prnts_phone_number, int age);
 	Result remove_teacher(string teachers_name);
 	Result remove_child(string childs_name);
 	Result sick_child(string childs_name);
