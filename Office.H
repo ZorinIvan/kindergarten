@@ -21,7 +21,6 @@ public:
 	Result remove_teacher(string name);
 	Result remove_class(int age_group);
 	Result reporting_sick_child(string name);
-	void print();
 private:
 	bool busy_;
 	string sick_child_name_;

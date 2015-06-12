@@ -34,8 +34,6 @@ string Class::get_child_number(string childs_name) const
 	{
 		if (child_vec_[i].get_name() == childs_name)
 			return child_vec_[i].get_phone();
-		else
-			continue;
 	}
 	return "No Child";
 }
