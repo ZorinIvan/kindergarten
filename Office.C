@@ -189,4 +189,16 @@ Result Office::reporting_sick_child(string name)
 	return FAILURE;
 }
 
-
+void Office::print_office()
+{
+	cout << "Printing office status :" << endl;
+	cout << "========================" << endl;
+	print_room(); /*Printing the room info*/
+	cout << "Office is busy : " << std::boolalpha << busy_ << endl;
+	cout << "Sick child : " << sick_child_name_ << endl;
+	cout << endl;
+	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the classes and printing them one by one*/
+	{
+		class_vec_[i].print_class();
+	}
+}
