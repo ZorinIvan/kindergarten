@@ -33,6 +33,6 @@ void Room::not_occupied() /*sets the room as not occupied*/
 void Room::print_room() const /*prints the room as asked*/
 {
 	cout << "Number : " << room_num_ << endl;
-	cout << "Size : " << room_space_ << " square meters" << endl;
+	cout << "Size : " << room_space_ << " square meters " << endl;
 	cout << "Is Occupied : " << std::boolalpha << occupied_ << endl;
 }
