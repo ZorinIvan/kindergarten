@@ -73,6 +73,10 @@ Result Class::remove_teacher(string teachers_name)
 {
 	if (teacher_vec_.size() == 0)
 		return FAILURE; /*No teachers*/
+	if (teacher_vec_.size() == 1) /*Only one teacher*/
+	{
+		teacher_vec_.erase(teacher_vec_.begin());
+	}
 	if ((child_vec_.size() / (teacher_vec_.size() - 1)) > child_teacher_max_) /*Dont surpass the maximum*/
 		return FAILURE;
 	for (int i = 0; i <= (int)teacher_vec_.size() - 1; i++) /*Search for the one we want to delete*/
