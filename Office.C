@@ -28,6 +28,7 @@ Result Office::add_new_class(int space, double child_teacher_max_ratio, int max_
 	Class new_class(room_num, space, child_teacher_max_ratio, age_group, max_child_num); /*Initializing the new class*/
 	class_vec_.push_back(new_class); /*Inserting the new class*/
 	return SUCCESS;
+
 }
 
 Result Office::add_new_child(string name, int age, string Prnts_phone)
@@ -64,9 +65,13 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 	{
 		if (class_vec_[i].get_teacher_num() == 0) /*Found a class with 0 teachers and 0 children*/
 		{
-			class_vec_[i].add_teacher(name, seniority, age); /*Adding the teacher*/
-			class_vec_[i].is_occupied();
-			return SUCCESS;
+			if (class_vec_[i].add_teacher(name, seniority, age) == SUCCESS)
+			{/*Adding the teacher*/
+				class_vec_[i].is_occupied();
+				return SUCCESS;
+			}
+			else
+				return FAILURE;
 		}
 		/*FOR THE SECOND SCENERIO CONDITION*/
 		if (class_vec_[i].get_current_ratio() != 0) /*Meanwhile we want to remember if there is a class with a ratio different than 0*/
