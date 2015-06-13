@@ -67,36 +67,127 @@ int main() {
 	  if (tokens.size() == 0) { //empty line
 	    continue;
 	  }
-	  
+
 	  if (tokens[0] == "addClass") {
-	    //Add your code here ...
-	  }
+
+		  vector<string> token_ratio = tokenize(tokens[2], ".");
+		  int size, max_num_children, children_age;
+		  double ratio;
+
+
+		  if (tokens.size() != 5){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+		  size=stringToInt(tokens[1]);
+		  ratio=stringToDouble(token_ratio[0],token_ratio[1]);
+		  max_num_children=stringToInt(tokens[3]);
+		  children_age=stringToInt(tokens[4]);
+
+
+
+		  if(KG_Office.add_new_class(size, ratio, children_age, max_num_children)==FAILURE){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+	  } //  if (tokens[0] == "addClass")
+
+
 	  if (tokens[0] == "removeClass") {
-	    //Add your code here ...
-	  }
+
+		  if (tokens.size() != 2){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+		  int age=stringToInt(tokens[1]);
+
+		  if(KG_Office.remove_class(age)==FAILURE){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+	  }//if (tokens[0] == "removeClass")
+
+
 	  if (tokens[0] == "addChild") {
-	    //Add your code here ...
-	  }
+		  if (tokens.size() != 4){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+		  int age=stringToInt(tokens[1]);
+		  if(KG_Office.add_new_child(tokens[2], age, tokens[3])==FAILURE){
+				  cerr << "Failed - " << line << endl;
+				  continue;
+		  }
+
+	  }//if (tokens[0] == "addChild")
 	  
-	  if (tokens[0] == "addTeahcer") {
-	    //Add your code here ...
-	  }
+	  if (tokens[0] == "addTeacher") {
+		 if (tokens.size() != 4){
+			 cerr << "Failed - " << line << endl;
+		  	 continue;
+		  }
+
+		 int age, seniority;
+		 age=stringToInt(tokens[1]);
+		 seniority=stringToInt(tokens[3]);
+
+		 if(KG_Office.add_new_teacher(tokens[2], age, seniority)==FAILURE){
+			cerr << "Failed - " << line << endl;
+			continue;
+		 }
+
+	  }//if (tokens[0] == "addTeacher")
 	  
 	  if (tokens[0] == "removeChild") {
-	    //Add your code here ...
-	  }
+		  if (tokens.size() != 2){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+		  if(KG_Office.remove_child(tokens[1])==FAILURE){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+	  }//  if (tokens[0] == "removeChild")
 	  
 	  if (tokens[0] == "removeTeacher") {
-	    //Add your code here ...
-	  }
+		  if (tokens.size() != 2){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+		  if(KG_Office.remove_teacher(tokens[1])==FAILURE){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+	  }// if (tokens[0] == "removeTeacher")
 	  
 	  if (tokens[0] == "PrintKindergarten") {
-	    //Add your code here ...
-	  }
+		  if (tokens.size() != 1){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+		  KG_Office.print_office();
+	  }//if (tokens[0] == "PrintKindergarten")
 	  
 	  if (tokens[0] == "sickChild") {
-	    //Add your code here ...
-	  }
+		  if (tokens.size() != 2){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+
+		  if(KG_Office.reporting_sick_child(tokens[1])==FAILURE){
+			  cerr << "Failed - " << line << endl;
+			  continue;
+		  }
+	  }//if (tokens[0] == "sickChild")
 	  
 	  lineNumber++;
 	}
