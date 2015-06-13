@@ -32,6 +32,8 @@ Result Office::add_new_class(int space, double child_teacher_max_ratio, int max_
 
 Result Office::add_new_child(string name, int age, string Prnts_phone)
 {
+	if (class_vec_.size() == 0)
+		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
 	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Looking for the right class*/
@@ -47,6 +49,8 @@ Result Office::add_new_child(string name, int age, string Prnts_phone)
 
 Result Office::add_new_teacher(string name, int age, int seniority)
 {
+	if (class_vec_.size() == 0)
+		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
 	double ratio_different; /*To know if all ratios are 0*/
@@ -101,6 +105,8 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 
 Result Office::remove_child(string name)
 {
+	if (class_vec_.size() == 0)
+		return FAILURE; /*No classes yet*/
 	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Go through each of the classes*/
 	{
 		if (class_vec_[i].get_child_number(name) != "No Child")/*The child was found in this class*/
@@ -135,6 +141,8 @@ Result Office::remove_child(string name)
 
 Result Office::remove_teacher(string name)
 {
+	if (class_vec_.size() == 0)
+		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
 	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the classes*/
@@ -152,6 +160,8 @@ Result Office::remove_teacher(string name)
 
 Result Office::remove_class(int age_group)
 {
+	if (class_vec_.size() == 0)
+		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
 	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the classes untill we find the right one*/
@@ -168,6 +178,8 @@ Result Office::remove_class(int age_group)
 
 Result Office::reporting_sick_child(string name)
 {
+	if (class_vec_.size() == 0)
+		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
 	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Looking for the right class*/
