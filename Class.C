@@ -74,7 +74,7 @@ Result Class::remove_teacher(string teachers_name)
 		return FAILURE; /*No teachers*/
 	if ((child_vec_.size() / (teacher_vec_.size() - 1)) > child_teacher_max_) /*Dont surpass the maximum*/
 		return FAILURE;
-	for (int i = (teacher_vec_.size() - 1); i <= 0; i--) /*Search for the one we want to delete*/
+	for (int i = (teacher_vec_.size() - 1); i >= 0; i--) /*Search for the one we want to delete*/
 	{
 		if (teacher_vec_[i].get_name() == teachers_name)/*Found the teacher*/
 		{
@@ -87,7 +87,7 @@ Result Class::remove_teacher(string teachers_name)
 
 Result Class::remove_child(string childs_name)
 {
-	for (int i = (child_vec_.size() - 1); i <= 0; i--) /*Search for the one we want to delete*/
+	for (int i = (child_vec_.size() - 1); i >= 0; i--) /*Search for the one we want to delete*/
 	{
 		if (child_vec_[i].get_name() == childs_name)/*Found the child*/
 		{
@@ -100,7 +100,7 @@ Result Class::remove_child(string childs_name)
 
 Result Class::sick_child(string childs_name)
 {
-	for (int i = (child_vec_.size() - 1); i <= 0; i--) /*Search for the one we want to set sick*/
+	for (int i = (child_vec_.size() - 1); i >= 0; i--) /*Search for the one we want to set sick*/
 	{
 		if (child_vec_[i].get_name() == childs_name)/*Found the child*/
 		{
