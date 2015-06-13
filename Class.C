@@ -31,8 +31,7 @@ double Class::get_current_ratio() const
 
 string Class::get_child_number(string childs_name) const
 {
-	int vec_size = child_vec_.size();
-	for (int i = (vec_size - 1); i >= 0; i--) /*Go over the items in the vector*/
+	for (int i = 0; i <= (int)child_vec_.size() - 1; i++) /*Go over the items in the vector*/
 	{
 		if (child_vec_[i].get_name() == childs_name)
 			return child_vec_[i].get_phone();
@@ -43,7 +42,7 @@ string Class::get_child_number(string childs_name) const
 Result Class::add_teacher(string teachers_name, int seniority, int age)
 {
 	Teacher new_teacher(teachers_name, age, seniority); /*Create a new teacher*/
-	for (int i = (teacher_vec_.size() - 1); i >= 0; i--) /*Go through the items in the vector and see if it exists already*/
+	for (int i = 0; i <= (int)(teacher_vec_.size() - 1); i++) /*Go through the items in the vector and see if it exists already*/
 	{
 		if (teacher_vec_[i].get_name() == teachers_name)
 			return FAILURE;
@@ -61,7 +60,7 @@ Result Class::add_child(string childs_name, string Prnts_phone_number, int age) 
 	Child new_child(childs_name, age, Prnts_phone_number);
 	if (((child_vec_.size() + 1) / teacher_vec_.size()) > child_teacher_max_) /*Dont surpass the maximum*/
 		return FAILURE;
-	for (int i = (child_vec_.size() - 1); i >= 0; i--) /*Go through the items in the vector and see if it exists already*/
+	for (int i = 0; i <= (int)child_vec_.size()-1; i++) /*Go through the items in the vector and see if it exists already*/
 	{
 		if (child_vec_[i].get_name() == childs_name)
 			return FAILURE;
@@ -76,7 +75,7 @@ Result Class::remove_teacher(string teachers_name)
 		return FAILURE; /*No teachers*/
 	if ((child_vec_.size() / (teacher_vec_.size() - 1)) > child_teacher_max_) /*Dont surpass the maximum*/
 		return FAILURE;
-	for (int i = (teacher_vec_.size() - 1); i >= 0; i--) /*Search for the one we want to delete*/
+	for (int i = 0; i <= (int)teacher_vec_.size() - 1; i++) /*Search for the one we want to delete*/
 	{
 		if (teacher_vec_[i].get_name() == teachers_name)/*Found the teacher*/
 		{
@@ -89,7 +88,7 @@ Result Class::remove_teacher(string teachers_name)
 
 Result Class::remove_child(string childs_name)
 {
-	for (int i = (child_vec_.size() - 1); i >= 0; i--) /*Search for the one we want to delete*/
+	for (int i = 0; i <= (int)child_vec_.size() - 1; i++) /*Search for the one we want to delete*/
 	{
 		if (child_vec_[i].get_name() == childs_name)/*Found the child*/
 		{
@@ -102,7 +101,7 @@ Result Class::remove_child(string childs_name)
 
 Result Class::sick_child(string childs_name)
 {
-	for (int i = (child_vec_.size() - 1); i >= 0; i--) /*Search for the one we want to set sick*/
+	for (int i = 0 - 1; i <= (int)child_vec_.size(); i++) /*Search for the one we want to set sick*/
 	{
 		if (child_vec_[i].get_name() == childs_name)/*Found the child*/
 		{
@@ -129,7 +128,7 @@ void Class::print_class() const
 	cout << "========================" << endl;
 	if (child_vec_.size() > 0) /*There are children in this class*/
 	{
-		for (int i = child_vec_.size() - 1; i >= 0; i--)
+		for (int i =0 ; i <= (int)child_vec_.size() - 1; i++)
 		{
 			child_vec_[i].print_child();
 		}
@@ -139,7 +138,7 @@ void Class::print_class() const
 	cout << "========================" << endl;
 	if (teacher_vec_.size() > 0) /*There are teachers in this class*/
 	{
-		for (int i = teacher_vec_.size() - 1; i >= 0; i--)
+		for (int i = 0; i <= (int)teacher_vec_.size() - 1; i++)
 		{
 			teacher_vec_[i].print_teacher();
 		}

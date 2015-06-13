@@ -17,7 +17,7 @@ Result Office::add_new_class(int space, double child_teacher_max_ratio, int max_
 {
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Checking if a class with this age group already exists*/
+	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Checking if a class with this age group already exists*/
 	{
 		if (class_vec_[i].get_age_group() == age_group) /*They are the same age group*/
 			return FAILURE;
@@ -36,7 +36,7 @@ Result Office::add_new_child(string name, int age, string Prnts_phone)
 		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Looking for the right class*/
+	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Looking for the right class*/
 	{
 		if (age == class_vec_[i].get_age_group()) /*Right age group*/
 		{
@@ -58,7 +58,7 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 	int least_teachers_index=9999; /*The class with the least teachers*/
 	double max_ratio = 0; /*The class with the max ratio*/
 	int max_ratio_index; /*The index of the class with the max ratio*/
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the vector from the start to see if there is an empty class*/
+	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Going through the vector from the start to see if there is an empty class*/
 	{
 		if (class_vec_[i].get_teacher_num() == 0) /*Found a class with 0 teachers and 0 children*/
 		{
@@ -107,7 +107,7 @@ Result Office::remove_child(string name)
 {
 	if (class_vec_.size() == 0)
 		return FAILURE; /*No classes yet*/
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Go through each of the classes*/
+	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Go through each of the classes*/
 	{
 		if (class_vec_[i].get_child_number(name) != "No Child")/*The child was found in this class*/
 		{
@@ -145,7 +145,7 @@ Result Office::remove_teacher(string name)
 		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the classes*/
+	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Going through the classes*/
 	{
 		if (class_vec_[i].remove_child(name) == SUCCESS)/*If we found the teacher and it was deleted*/
 		{
@@ -164,7 +164,7 @@ Result Office::remove_class(int age_group)
 		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the classes untill we find the right one*/
+	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Going through the classes untill we find the right one*/
 	{
 		if (class_vec_[i].get_age_group() == age_group) /*We found the right class*/
 		{
@@ -182,7 +182,7 @@ Result Office::reporting_sick_child(string name)
 		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Looking for the right class*/
+	for (int i =0 ; i <= (int)class_vec_.size() - 1; i++) /*Looking for the right class*/
 	{
 		string child_Prnts_number = class_vec_[i].get_child_number(name);
 		if (child_Prnts_number != "No Child") /*If we found the child with this name*/
@@ -209,9 +209,12 @@ void Office::print_office()
 	cout << "========================" << endl;
 	print_room(); /*Printing the room info*/
 	cout << "Office is busy : " << std::boolalpha << busy_ << endl;
-	cout << "Sick child : " << sick_child_name_ << endl;
+	if (busy_ == true)
+	{
+		cout << "Sick child : " << sick_child_name_ << endl;
+	}
 	cout << endl;
-	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the classes and printing them one by one*/
+	for (int i = 0; i <= (int)class_vec_.size() - 1 ; i++) /*Going through the classes and printing them one by one*/
 	{
 		class_vec_[i].print_class();
 	}
