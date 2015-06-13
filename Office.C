@@ -40,8 +40,10 @@ Result Office::add_new_child(string name, int age, string Prnts_phone)
 	{
 		if (age == class_vec_[i].get_age_group()) /*Right age group*/
 		{
-			class_vec_[i].add_child(name, Prnts_phone, age);
-			return SUCCESS;
+			if (class_vec_[i].add_child(name, Prnts_phone, age) == SUCCESS)
+				return SUCCESS;
+			else
+				return FAILURE;
 		}
 	}
 	return FAILURE; /*Not found*/
