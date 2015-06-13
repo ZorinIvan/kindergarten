@@ -111,7 +111,7 @@ Result Office::remove_child(string name)
 	{
 		if (class_vec_[i].get_child_number(name) != "No Child")/*The child was found in this class*/
 		{
-			if (busy_ = true) /*There is a sick child*/
+			if (busy_ == true) /*There is a sick child*/
 			{
 				if (name == sick_child_name_) /*This child is the sick child*/
 				{
