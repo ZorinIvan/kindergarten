@@ -101,7 +101,7 @@ Result Class::remove_child(string childs_name)
 
 Result Class::sick_child(string childs_name)
 {
-	for (int i = 0 - 1; i <= (int)child_vec_.size(); i++) /*Search for the one we want to set sick*/
+	for (int i = 0; i <= (int)child_vec_.size(); i++) /*Search for the one we want to set sick*/
 	{
 		if (child_vec_[i].get_name() == childs_name)/*Found the child*/
 		{

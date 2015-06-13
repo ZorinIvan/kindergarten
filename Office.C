@@ -117,8 +117,8 @@ Result Office::remove_child(string name)
 				{
 					if (class_vec_[i].remove_child(sick_child_name_) == SUCCESS)
 					{
-						sick_child_name_ = "";
 						busy_ = false; /*The office is no longer busy*/
+						sick_child_name_ = "None";
 						return SUCCESS;
 					}
 					else
@@ -135,6 +135,8 @@ Result Office::remove_child(string name)
 				}
 			}
 		}
+		else
+			continue;
 	} 
 	/*We haven't found the child in any of the classes*/
 	return FAILURE;
