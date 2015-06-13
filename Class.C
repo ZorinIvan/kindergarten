@@ -41,7 +41,7 @@ string Class::get_child_number(string childs_name) const
 Result Class::add_teacher(string teachers_name, int seniority, int age)
 {
 	Teacher new_teacher(teachers_name, age, seniority); /*Create a new teacher*/
-	for (int i = (teacher_vec_.size() - 1); i <= 0; i--) /*Go through the items in the vector and see if it exists already*/
+	for (int i = (teacher_vec_.size() - 1); i >= 0; i--) /*Go through the items in the vector and see if it exists already*/
 	{
 		if (teacher_vec_[i].get_name() == teachers_name)
 			return FAILURE;
@@ -59,7 +59,7 @@ Result Class::add_child(string childs_name, string Prnts_phone_number, int age) 
 	Child new_child(childs_name, age, Prnts_phone_number);
 	if (((child_vec_.size() + 1) / teacher_vec_.size()) > child_teacher_max_) /*Dont surpass the maximum*/
 		return FAILURE;
-	for (int i = (child_vec_.size() - 1); i <= 0; i--) /*Go through the items in the vector and see if it exists already*/
+	for (int i = (child_vec_.size() - 1); i >= 0; i--) /*Go through the items in the vector and see if it exists already*/
 	{
 		if (teacher_vec_[i].get_name() == childs_name)
 			return FAILURE;

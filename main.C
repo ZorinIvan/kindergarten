@@ -87,7 +87,7 @@ int main() {
 
 
 
-		  if(KG_Office.add_new_class(size, ratio, children_age, max_num_children)==FAILURE){
+		  if (KG_Office.add_new_class(size, ratio, max_num_children, children_age) == FAILURE){
 			  cerr << "Failed - " << line << endl;
 			  continue;
 		  }

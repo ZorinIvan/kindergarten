@@ -17,7 +17,7 @@ Result Office::add_new_class(int space, double child_teacher_max_ratio, int max_
 {
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	for (int i = class_vec_.size() - 1; i >= 0; i++) /*Checking if a class with this age group already exists*/
+	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Checking if a class with this age group already exists*/
 	{
 		if (class_vec_[i].get_age_group() == age_group) /*They are the same age group*/
 			return FAILURE;
@@ -58,7 +58,7 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 	int least_teachers_index=9999; /*The class with the least teachers*/
 	double max_ratio = 0; /*The class with the max ratio*/
 	int max_ratio_index; /*The index of the class with the max ratio*/
-	for (int i = class_vec_.size() - 1; i >= 0; i++) /*Going through the vector from the start to see if there is an empty class*/
+	for (int i = class_vec_.size() - 1; i >= 0; i--) /*Going through the vector from the start to see if there is an empty class*/
 	{
 		if (class_vec_[i].get_teacher_num() == 0) /*Found a class with 0 teachers and 0 children*/
 		{
