@@ -54,7 +54,7 @@ Result Class::add_child(string childs_name, string Prnts_phone_number, int age) 
 {
 	if (teacher_vec_.size() == 0)
 		return FAILURE; /*No teachers*/
-	if (child_vec_.size() == max_child_num_) /*We surpass the max ammount of children*/
+	if ((int)child_vec_.size() == max_child_num_) /*We surpass the max ammount of children*/
 		return FAILURE;
 	Child new_child(childs_name, age, Prnts_phone_number);
 	if (((child_vec_.size() + 1) / teacher_vec_.size()) > child_teacher_max_) /*Dont surpass the maximum*/
