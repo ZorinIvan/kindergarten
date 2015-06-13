@@ -1,22 +1,27 @@
-#makefile for creating the executable
+#This is a Makefile for Kindergarten
+CCC=g++
+CXXFLAGS=-Wall -g
+CXXLINK=$(CCC)
+OBJS=main.o Child.o Class.o Office.o Person.o Room.o Teacher.o
+RM=rm -f
 
-#Linking
-prog: main.o list.o graph.o
-	gcc -o prog main.o list.o graph.o -L/usr/local/lib/ -lm
+#Default target (usually "all")
+all: Kindergarten
 
-#Compiling list.c
-list.o: list.c list.h
-	gcc -c -g -Wall list.c
-
-#Compiling graph.c
-graph.o: graph.c graph.h
-	gcc -c -g -Wall graph.c -L/usr/local/lib/ -lm
-
-#Compiling main.c
-main.o: main.c list.h graph.h
-	gcc -c -g -Wall main.c
+#Creating the executables
+Kindergarten:$(OBJS)
+	$(CXXLINK) -o Kindergarten $(OBJS)  
 
 
-clean:
-	rm -f prog screen_test *.o *.bak *~ "#"* core
- 
+#Creating object files using default rules
+Person.o: Person.C Person.H 
+Child.o: Child.C Child.H Person.H defs.H
+Teacher.o: Teacher.C Teacher.H  Person.H
+Room.o: Room.C Room.H defs.H 
+Class.o: Class.C Class.H defs.H Room.H Child.H Teacher.H
+Office..o: Office.C Office.H Room.H defs.H Class.H
+main.o: main.C Office.H Class.H Child.H Teacher.H
+
+#Cleaning old files before new make
+clean:  
+	$(RM) Kindergarten *.o *.bak *~ "#"* core
