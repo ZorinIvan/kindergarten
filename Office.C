@@ -56,7 +56,7 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	double ratio_different; /*To know if all ratios are 0*/
+	double ratio_different=9999; /*To know if all ratios are 0*/
 	int least_teachers=9999; /*Number of teachers in the class with least teachers*/
 	int least_teachers_index=9999; /*The class with the least teachers*/
 	double max_ratio = 0; /*The class with the max ratio*/
