@@ -79,7 +79,7 @@ Result Class::remove_teacher(string teachers_name)
 	{
 		if (teacher_vec_[i].get_name() == teachers_name)/*Found the teacher*/
 		{
-			teacher_vec_.erase(teacher_vec_.end() - 1 - i); /*We are deleting from the end*/ /*it returns the position of the past-the-end place*/
+			teacher_vec_.erase(teacher_vec_.begin() + i); /*We are deleting from the end*/ /*it returns the position of the past-the-end place*/
 			return SUCCESS;
 		}
 	}
@@ -92,7 +92,7 @@ Result Class::remove_child(string childs_name)
 	{
 		if (child_vec_[i].get_name() == childs_name)/*Found the child*/
 		{
-			child_vec_.erase(child_vec_.end() - 1 - i); /*We are deleting from the end*/ /*it returns the position of the past-the-end place*/
+			child_vec_.erase(child_vec_.begin() + i); /*We are deleting from the end*/ /*it returns the position of the past-the-end place*/
 			return SUCCESS;
 		}
 	}

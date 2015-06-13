@@ -168,7 +168,7 @@ Result Office::remove_class(int age_group)
 	{
 		if (class_vec_[i].get_age_group() == age_group) /*We found the right class*/
 		{
-			class_vec_.erase(class_vec_.end() - 1 - i); /*Delete the i'th class from the end*/
+			class_vec_.erase(class_vec_.begin() + i); /*Delete the i'th class from the start*/
 			return SUCCESS;
 		}
 	}
