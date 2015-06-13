@@ -23,8 +23,8 @@ public:
 	Result reporting_sick_child(string name);
 	void print_office();
 private:
-	bool busy_;
 	string sick_child_name_;
+	bool busy_;
 	vector<Class> class_vec_;
 };
 
