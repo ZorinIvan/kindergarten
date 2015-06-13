@@ -56,7 +56,7 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 		return FAILURE; /*No classes yet*/
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;
-	double ratio_different=9999; /*To know if all ratios are 0*/
+	bool ratio_different=false; /*To know if all ratios are 0*/
 	int least_teachers=9999; /*Number of teachers in the class with least teachers*/
 	int least_teachers_index=9999; /*The class with the least teachers*/
 	double max_ratio = 0; /*The class with the max ratio*/
@@ -75,7 +75,7 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 		}
 		/*FOR THE SECOND SCENERIO CONDITION*/
 		if (class_vec_[i].get_current_ratio() != 0) /*Meanwhile we want to remember if there is a class with a ratio different than 0*/
-			ratio_different = class_vec_[i].get_current_ratio();
+			ratio_different = true;
 		/*FOR THE SECOND SCENERIO CONDITION*/
 
 		/*FOR THE SECOND SCENERIO*/
@@ -96,7 +96,7 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 	}
 
 	/*We saw that there is no classes with no teachers*/
-	if (ratio_different == 0) /*We are going to give the teacher to the class with the lowest number of teachers*/
+	if (ratio_different == false) /*We are going to give the teacher to the class with the lowest number of teachers*/
 	{
 		class_vec_[least_teachers_index].add_teacher(name, seniority, age); /*Adding the teacher*/
 		return SUCCESS;
