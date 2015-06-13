@@ -124,25 +124,31 @@ void Class::print_class() const
 	cout << "Current ratio : " << get_current_ratio() << endl;
 	cout << "Children age range : " << get_age_group() << " - " << (get_age_group() + 1) << endl;
 	cout << endl;
-	cout << "Printing childrens status :" << endl;
-	cout << "========================" << endl;
-	if (child_vec_.size() > 0) /*There are children in this class*/
+	if (child_vec_.size() != 0)
 	{
-		for (int i =0 ; i <= (int)child_vec_.size() - 1; i++)
+		cout << "Printing childrens status :" << endl;
+		cout << "========================" << endl;
+		if (child_vec_.size() > 0) /*There are children in this class*/
 		{
-			child_vec_[i].print_child();
+			for (int i = 0; i <= (int)child_vec_.size() - 1; i++)
+			{
+				child_vec_[i].print_child();
+			}
 		}
+		cout << endl;
 	}
-	cout << endl;
-	cout << "Printing teachers status :" << endl;
-	cout << "========================" << endl;
-	if (teacher_vec_.size() > 0) /*There are teachers in this class*/
+	if (teacher_vec_.size() != 0)
 	{
-		for (int i = 0; i <= (int)teacher_vec_.size() - 1; i++)
+		cout << "Printing teachers status :" << endl;
+		cout << "========================" << endl;
+		if (teacher_vec_.size() > 0) /*There are teachers in this class*/
 		{
-			teacher_vec_[i].print_teacher();
+			for (int i = 0; i <= (int)teacher_vec_.size() - 1; i++)
+			{
+				teacher_vec_[i].print_teacher();
+			}
 		}
+		cout << endl;
 	}
-	cout << endl;
 	return;
 }
