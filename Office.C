@@ -115,8 +115,9 @@ Result Office::remove_child(string name)
 			{
 				if (name == sick_child_name_) /*This child is the sick child*/
 				{
-					if (class_vec_[i].remove_child(name) == SUCCESS)
+					if (class_vec_[i].remove_child(sick_child_name_) == SUCCESS)
 					{
+						sick_child_name_ = "";
 						busy_ = false; /*The office is no longer busy*/
 						return SUCCESS;
 					}
