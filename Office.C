@@ -141,6 +141,8 @@ Result Office::remove_teacher(string name)
 	{
 		if (class_vec_[i].remove_child(name) == SUCCESS)/*If we found the teacher and it was deleted*/
 		{
+			if (class_vec_[i].get_teacher_num() == 0)
+				class_vec_[i].not_occupied();
 			return SUCCESS;
 		}
 	}
