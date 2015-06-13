@@ -24,7 +24,9 @@ int Class::get_age_group() const /*Returns the age group of the children*/
 
 double Class::get_current_ratio() const
 {
-	return (child_vec_.size() / teacher_vec_.size()); /*This is the current ratio of children to teachers*/
+	if (teacher_vec_.size() !=0)
+		return (child_vec_.size() / teacher_vec_.size()); /*This is the current ratio of children to teachers*/
+	return 0;
 }
 
 string Class::get_child_number(string childs_name) const
