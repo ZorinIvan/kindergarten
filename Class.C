@@ -61,7 +61,7 @@ Result Class::add_child(string childs_name, string Prnts_phone_number, int age) 
 		return FAILURE;
 	for (int i = (child_vec_.size() - 1); i >= 0; i--) /*Go through the items in the vector and see if it exists already*/
 	{
-		if (teacher_vec_[i].get_name() == childs_name)
+		if (child_vec_[i].get_name() == childs_name)
 			return FAILURE;
 	}
 	child_vec_.push_back(new_child);
