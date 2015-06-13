@@ -194,7 +194,7 @@ Result Office::reporting_sick_child(string name)
 					busy_ = true;
 					sick_child_name_ = name; /*Remembering the name of the sick child*/
 					class_vec_[i].sick_child(name);
-					cout << "Reporting sick child :" << endl;
+					cout << "Reporting sick child : " << endl;
 					cout << "Name : " << sick_child_name_ << endl;
 					cout << "Parent's phone number : " << child_Prnts_number << endl;
 					return SUCCESS;
