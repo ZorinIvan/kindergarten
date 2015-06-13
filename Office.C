@@ -98,13 +98,17 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 	/*We saw that there is no classes with no teachers*/
 	if (ratio_different == false) /*We are going to give the teacher to the class with the lowest number of teachers*/
 	{
-		class_vec_[least_teachers_index].add_teacher(name, seniority, age); /*Adding the teacher*/
-		return SUCCESS;
+		if (class_vec_[least_teachers_index].add_teacher(name, seniority, age) == SUCCESS) /*Adding the teacher*/
+			return SUCCESS;
+		else
+			return FAILURE;
 	}
 	else
 	{
-		class_vec_[max_ratio_index].add_teacher(name, seniority, age); /*Adding the teacher*/
-		return SUCCESS;
+		if (class_vec_[max_ratio_index].add_teacher(name, seniority, age) == SUCCESS) /*Adding the teacher*/
+			return SUCCESS;
+		else
+			return FAILURE;
 	}
 
 	return FAILURE;
@@ -157,7 +161,7 @@ Result Office::remove_teacher(string name)
 		return FAILURE;
 	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Going through the classes*/
 	{
-		if (class_vec_[i].remove_child(name) == SUCCESS)/*If we found the teacher and it was deleted*/
+		if (class_vec_[i].remove_teacher(name) == SUCCESS)/*If we found the teacher and it was deleted*/
 		{
 			if (class_vec_[i].get_teacher_num() == 0)
 				class_vec_[i].not_occupied();
