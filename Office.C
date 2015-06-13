@@ -60,7 +60,7 @@ Result Office::add_new_teacher(string name, int age, int seniority)
 	int least_teachers=9999; /*Number of teachers in the class with least teachers*/
 	int least_teachers_index=9999; /*The class with the least teachers*/
 	double max_ratio = 0; /*The class with the max ratio*/
-	int max_ratio_index; /*The index of the class with the max ratio*/
+	int max_ratio_index=9999; /*The index of the class with the max ratio*/
 	for (int i = 0; i <= (int)class_vec_.size() - 1; i++) /*Going through the vector from the start to see if there is an empty class*/
 	{
 		if (class_vec_[i].get_teacher_num() == 0) /*Found a class with 0 teachers and 0 children*/
