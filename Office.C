@@ -13,7 +13,7 @@ Office::Office() : Room(1, 20), sick_child_name_("None"), busy_(false) /*Constru
 	is_occupied();
 }
 
-Result Office::add_new_class(int space, double child_teacher_max_ratio, int age_group, int max_child_num) /*Go through the items in the class vector*/
+Result Office::add_new_class(int space, double child_teacher_max_ratio, int max_child_num, int age_group) /*Go through the items in the class vector*/
 {
 	if (busy_ == true) /*We cant do anything if the office is busy*/
 		return FAILURE;

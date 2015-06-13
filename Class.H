@@ -31,8 +31,8 @@ public:
   	
 private:
 	double child_teacher_max_;
-	int max_child_num_;
 	int age_group_;
+	int max_child_num_;
 	vector<Child> child_vec_; /*Create a child vector*/
 	vector<Teacher> teacher_vec_; /*Create a teacher vector*/
 };
