@@ -1,0 +1,8 @@
+#!/bin/bash
+mkdir ./"$1" #create a new folder
+for f in ./"$2"/* #go through all files in the given folder
+do
+filename=$(basename "$f") #copy file name
+#open a current file, find all rows that doesn't start with '//', copy this row to a new file with the same name
+cat $f | egrep -v '^[//]|^[[:space:]]+[//]' >> ./"$1"/"$filename" 
+done
